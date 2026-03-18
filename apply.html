@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apply – e-visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="apply">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="Republika e Shqipërisë e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <div class="w-full md:flex md:flex-row md:items-center md:w-auto md:ml-auto">
+            <div id="navbar-auth-mount"></div>
+            <div class="flex border rounded-md border-secondary-500 m-4 md:my-2 md:mr-0 md:ml-4" role="group" aria-label="Language"><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="en">EN</button><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="sq">AL</button></div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <header id="page-title">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 py-4 px-4">Apply</section>
+  </header>
+
+  <div class="bg-gray-200 py-8">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 mb-8 px-4 flex flex-wrap">
+      <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 px-4 py-6 flex flex-wrap justify-center gap-6">
+        <div class="border rounded-md border-gray-400 w-full xl:w-48pct p-6 bg-white self-start apply-card">
+          <header class="mb-4">
+            <h2>e-Visa is an online application system developed by the Albanian government to pre-screen travelers wishing to visit Albania.</h2>
+          </header>
+          <p class="mb-2">Applicants have full access to the e-Visa application system. They must complete the e-Visa process before traveling to Albania by air, land or sea.</p>
+        </div>
+        <div class="border rounded-md border-gray-400 w-full xl:w-48pct p-6 bg-white self-start apply-card highlight">
+          <h2>IMPORTANT INFORMATION BEFORE APPLICATION</h2>
+          <ol class="list-decimal pl-5 space-y-2 font-normal">
+            <li>Payment for the visa is not refunded / reimbursed in cases of rejection of the application.</li>
+            <li>Obtaining a visa is not a guarantee that the foreigner is allowed to enter the Republic of Albania.</li>
+            <li>Visa applications must be completed online and ensuring that the applicant is outside the territory of the Republic of Albania after payment of the visa fee.</li>
+            <li>During the visa application verification process, it is strictly forbidden for the applicant, the invitee, or any other subject to communicate with the responsible institutions, except when contacted by the relevant Diplomatic or Consular Mission.</li>
+            <li>The evaluation process after payment is received lasts a minimum of 15 working days and for exceptional cases, can take up to 30 working days.</li>
+            <li>In case of non-payment of the visa fee after 15 days, the application will change to "Not paid" status and will be automatically refused.</li>
+            <li>Applicants with dual citizenship must select the nationality of the passport they will use for travel. If the country in the travel document registered with e-Visa is different from the document the person has during the trip, the e-Visa will be invalid.</li>
+            <li>All documents uploaded must be translated in Albanian or otherwise in the English language and must be scanned and in pdf format.</li>
+          </ol>
+        </div>
+        <div class="border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-lg p-6 bg-white space-y-4 apply-card">
+          <h2 class="uppercase">PLEASE FOLLOW THE GUIDELINES BELOW WHEN UPLOADING THE REQUESTED DOCUMENTS IN YOUR VISA APPLICATION:</h2>
+          <p class="text-sm">The photo must fulfill this criteria 47 mm × 36 mm or 555 px (Height) × 425 px (Width) × 300 DPI</p>
+          <img src="https://e-visa.al/img/image-size.png" alt="Visa photo guidelines" class="w-full rounded-md border border-gray-300">
+          <p class="text-sm">Photocopies of requested documents must be scanned properly following the guidelines below:</p>
+          <img src="https://e-visa.al/img/image-passport.png" alt="Photocopy document guidelines" class="w-full rounded-md border border-gray-300">
+        </div>
+      </section>
+
+      <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 px-4 py-6 flex flex-wrap justify-center gap-6">
+        <div class="border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-lg p-6 bg-white text-sm flex flex-col">
+          <header>
+            <h2>WHEN THE VISA APPLICATION SUCCESSFULLY COMPLETED</h2>
+          </header>
+          <div class="space-y-4">
+            <p>FIND YOUR APPLICATION CODE IN THIS EMAIL!</p>
+            <p>We are pleased to inform you that your Visa application has been successfully completed and is now registered online with application code:</p>
+            <p class="font-semibold">ROM-2XXXXXXX3XXXX</p>
+            <p>You can use this code to track your application</p>
+            <p><strong><a href="https://e-visa.al/track?trackingNumber=ROM-2XXXXXXX3XXXX" target="_blank" rel="noopener">https://e-visa.al/track?trackingNumber=ROM-2XXXXXXX3XXXX.</a></strong></p>
+            <p><span class="text-secondary-500">In the meantime, you can check the application again, making sure you have completed all the required fields and uploaded the documents as specified in the list.</span></p>
+            <p>Please await further instructions for your visa application process.</p>
+          </div>
+          <p class="mt-auto pt-6">Thank You! The Ministry for Europe and Foreign Affairs Online Consular Services embassy.xxxx@mfa.gov.al</p>
+        </div>
+
+        <div class="border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-lg p-6 bg-white text-sm flex flex-col">
+          <header>
+            <h2>VISA PAYMENT REQUIRED FOR YOUR VISA APPLICATION</h2>
+          </header>
+          <div class="space-y-4">
+            <p>The Embassy of the Republic of Albania XXXX informs you that the first phase of your application for a visa has been successful.</p>
+            <p><strong>In order to proceed with the verification process, a visa fee payment of X EUR is required.</strong></p>
+            <p><strong class="text-secondary-500">Please ensure that the following details are in the payment receipt:</strong></p>
+            <ul class="list-disc pl-5 space-y-1 text-secondary-500">
+              <li>Name and surname of the person applying for a visa.</li>
+              <li>Visa Code of the application you are making the payment for.</li>
+              <li>Description: Visa Fee Payment / Aplikim për vizë.</li>
+              <li>The printed receipt must include the signature of the bank employee and stamp of the bank.</li>
+            </ul>
+            <p><strong class="text-secondary-500">Online transactions, print screens of payments on mobile phones or other devices are not accepted as proof of payment.</strong></p>
+            <p>Please ensure you make the payment from your bank to the following account (the details will be sent by the system).</p>
+            <p>Go to the My Application page in the e-Visa portal and upload your bank receipt within 15 days from the notice date.</p>
+          </div>
+          <p class="mt-auto pt-6">Thank You! The Ministry for Europe and Foreign Affairs Online Consular Services embassy.xxxx@mfa.gov.al</p>
+        </div>
+
+        <div class="border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-lg p-6 bg-white text-sm flex flex-col">
+          <header>
+            <h2>IRREGULARITIES IN YOUR VISA APPLICATION</h2>
+          </header>
+          <div class="space-y-4">
+            <p>Dear X Y,</p>
+            <p>After initial checks carried out in your visa application, it has been found that further documentation is needed. Some of the documents have not been uploaded as requested.</p>
+            <p>Please go to the My Application section on the e-Visa portal, check through the comments section and upload the correct documents as requested.</p>
+            <p><strong>Comment 1, regarding the passport photo 5cm x 4cm:</strong> Please make sure you upload a passport standard photo with a white background.</p>
+            <p><strong>Comment 2, Proof of flight bookings:</strong> Please ensure you upload the return flight booking for your trip.</p>
+            <p>Failure to complete the required requests will risk your application being automatically refused 15 days from this notification.</p>
+          </div>
+          <p class="mt-auto pt-6">Thank You! The Ministry for Europe and Foreign Affairs Online Consular Services embassy.xxxx@mfa.gov.al</p>
+        </div>
+
+        <div class="border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-lg p-6 bg-white text-sm flex flex-col">
+          <header>
+            <h2>NOTIFICATION FOR VISA REJECTION</h2>
+          </header>
+          <div class="space-y-4">
+            <p>Dear X Y,</p>
+            <p>We kindly inform you that after the completion of the verification process of your visa, the application has been refused according to the legal basis.</p>
+            <p>The appeal against the decision to refuse or annul a visa must be made within 5 working days from receiving this notification as provided for in Law 79/2021 “On Foreigners”.</p>
+            <p>The authority responsible is the Directorate for Consular Affairs at the Ministry for Europe and Foreign Affairs of the Republic of Albania.</p>
+            <p>All appeals must be made via the official email: <strong><a href="mailto:visa@mfa.gov.al">visa@mfa.gov.al</a></strong></p>
+            <p>For a successful appeal, you must ensure you deposit the following via email:</p>
+            <ul class="list-disc pl-5 space-y-1">
+              <li>Documented evidence and other proof that support the appeal.</li>
+              <li>Detailed explanation why the visa should have been successful.</li>
+              <li>Subject heading must include: Visa Refusal Appeal – Name, Surname and Application Code.</li>
+            </ul>
+            <p>If these criteria are not met, the appeal request will not be taken into consideration.</p>
+            <p>If your appeal is unsuccessful, you must reapply 3 months from the initial date of refusal by the e-Visa system and the refusal must be declared in any future applications.</p>
+          </div>
+          <p class="mt-auto pt-6">Thank You! The Ministry for Europe and Foreign Affairs Online Consular Services embassy.xxxx@mfa.gov.al</p>
+        </div>
+
+        <div class="border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-lg p-6 bg-white text-sm flex flex-col">
+          <header>
+            <h2>E-VISA APPLICATION APPROVED</h2>
+          </header>
+          <div class="space-y-4">
+            <p>Dear X Y,</p>
+            <p>The Embassy / Consulate General of the Republic of Albania informs you that your visa application has been approved.</p>
+            <p>Your visa application is approved and you can download a digitally signed version by clicking on the relevant button.</p>
+            <div class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md transition inline-block">
+              Download
+            </div>
+            <p>Thank you for your e-Visa application.</p>
+          </div>
+          <p class="mt-auto pt-6">Thank You! The Ministry for Europe and Foreign Affairs Online Consular Services embassy.xxxx@mfa.gov.al</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 mb-8 px-4 flex flex-wrap">
+      <div class="xl:mx-12 mx-auto border rounded-md border-gray-400 w-full max-w-2xl xl:max-w-none p-8 bg-white">
+        <header class="mb-4">
+          <h2>Exemption of visa to enter and stay in the Republic of Albania for up to 90 days in 180 days</h2>
+        </header>
+        <ol class="list-outside list-decimal pl-6 space-y-2">
+          <li>Foreign citizens who have a valid, multiple-entry Schengen visa, which has been previously used in one of the Schengen states, or foreign citizens who have a valid permit of stay in one of the Schengen states.</li>
+          <li>Foreign citizens who have a valid, multiple-entry US or UK visa, which has been previously used in the respective country of issuance, or have valid permit of stay in the US or UK.</li>
+          <li>Citizens from Saudi Arabia, Oman, Qatar, Indonesia and Thailand can enter without a visa, only for tourism purpose for the period 15 April 2025 until 31 December 2025 with the document passport.</li>
+          <li>Holders of documents for travel by EU member states: Alien's travel document; Travel document (Refugees, Geneva Convention); Travel document (Stateless persons); Travel document for person enjoying subsidiary protection.</li>
+        </ol>
+        <div class="card-for-link-preview mt-6">
+          <a href="https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/" target="_blank" rel="noopener" class="link-preview-header mb-2 block text-secondary-500 font-semibold">
+            Visa regime for foreign citizens
+          </a>
+          <p class="mb-2 text-sm">
+            The visa regime for foreign citizens in the Republic of Albania is provided by Law No. 79/2021 “On foreigners” and by the Decision of the Council of Ministers No. 858, dated 29.12.2021, “On the definition of the criteria of procedures and documentation for entry, stay and treatment of foreigners in the Republic of Albania”.
+          </p>
+          <a href="https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/" target="_blank" rel="noopener" class="link-preview-text text-sm underline">
+            https://punetejashtme.gov.al/en/regjimi-i-vizave-per-te-huajt/
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 mb-8 px-4">
+      <section id="visa-types">
+        <div>
+          <div class="w-full flex flex-wrap">
+            <header class="w-full text-center my-4">
+              <h2>Select the desired visa type</h2>
+            </header>
+
+            <!-- Electronic Visa card (selected) -->
+            <section class="relative group my-4 rounded border-4 max-w-md xl:max-w-lg p-8 bg-white cursor-pointer mx-auto lg:ml-8 xl:ml-12 category-c border-solid border-secondary-500">
+              <span class="absolute top-0 right-0 p-2 border-b-4 border-l-4 rounded-bl-md border-secondary-500 text-secondary-500 leading-none font-bold bg-secondary-100 text-xs group-hover:bg-secondary-300 group-hover:text-white uppercase">
+                <span>SELECTED</span>
+              </span>
+              <header class="mb-4">
+                <h2>Electronic Visa</h2>
+                <h3>Electronic Visa</h3>
+              </header>
+              <p>It is an authorization printed in electronic form, generated with an electronic stamp and sent to the applicant by email, without the need to physically appear at the Diplomatic / Consular Representations of the Republic of Albania.</p>
+            </section>
+
+            <!-- Stamped Visa card -->
+            <section class="relative group my-4 rounded border-4 max-w-md xl:max-w-lg p-8 bg-white cursor-pointer mx-auto lg:mr-8 xl:mr-12 category-d border-dashed border-gray-400 hover:border-secondary-500">
+              <span class="absolute hidden group-hover:inline top-0 right-0 p-2 border-b-4 border-l-4 border-dashed rounded-bl-md border-secondary-500 text-secondary-500 leading-none font-bold bg-secondary-100 text-xs uppercase">
+                SELECT
+              </span>
+              <header class="mb-4">
+                <h2>Stamped Visa</h2>
+                <h3>Stamped Visa</h3>
+              </header>
+              <p>It is the authorization in the form of a stamp visa. In case of visa approval, the applicant physically presents for the withdrawal of the visa at the Diplomatic / Consular Representations of the Republic of Albania.</p>
+            </section>
+          </div>
+
+          <div class="w-full flex flex-wrap">
+            <header class="w-full text-center my-4">
+              <h2>Select the desired visa type</h2>
+            </header>
+
+            <!-- Visa Type “A” -->
+            <section class="relative group my-4 rounded border-4 max-w-md xl:max-w-lg p-8 bg-white cursor-pointer mx-auto lg:ml-8 xl:ml-12 category-a border-dashed border-gray-400 hover:border-secondary-500">
+              <span class="absolute hidden group-hover:inline top-0 right-0 p-2 border-b-4 border-l-4 border-dashed rounded-bl-md border-secondary-500 text-secondary-500 leading-none font-bold bg-secondary-100 text-xs uppercase">
+                SELECT
+              </span>
+              <header class="mb-4">
+                <h2>Visa Type “A”</h2>
+                <h3>Airport transit visa</h3>
+              </header>
+              <p>It is issued in the form of a stamp visa or printed in electronic format, which gives to the holder the right to enter and stay in the international area of an airport circulation until necessary for the transit.</p>
+              <p>Type “A” visa may be issued with one, two or multiple entry.</p>
+            </section>
+
+            <!-- Visa Type “C” -->
+            <section class="relative group my-4 rounded border-4 max-w-md xl:max-w-lg p-8 bg-white cursor-pointer mx-auto lg:ml-8 xl:mr-12 category-c border-dashed border-gray-400 hover:border-secondary-500">
+              <span class="absolute hidden group-hover:inline top-0 right-0 p-2 border-b-4 border-l-4 border-dashed rounded-bl-md border-secondary-500 text-secondary-500 leading-none font-bold bg-secondary-100 text-xs uppercase">
+                SELECT
+              </span>
+              <header class="mb-4">
+                <h2>Visa Type “C”</h2>
+                <h3>Short stay visa</h3>
+              </header>
+              <p>It is issued in the form of a stamp visa or printed in electronic format, which entitles its holder to enter and stay in the Republic of Albania for up to 90 days within 180 days, starting from the date of first entry.</p>
+              <p>Type “C” visa can be issued with one, two or more entries.</p>
+            </section>
+
+            <!-- Visa Type “D” -->
+            <section class="relative group my-4 rounded border-4 max-w-md xl:max-w-lg p-8 bg-white cursor-pointer mx-auto xl:ml-12 w-full category-d border-dashed border-gray-400 hover:border-secondary-500">
+              <span class="absolute hidden group-hover:inline top-0 right-0 p-2 border-b-4 border-l-4 border-dashed rounded-bl-md border-secondary-500 text-secondary-500 leading-none font-bold bg-secondary-100 text-xs uppercase">
+                SELECT
+              </span>
+              <header class="mb-4">
+                <h2>Visa Type “D”</h2>
+                <h3>Long stay visa</h3>
+              </header>
+              <p>It is issued in the form of a stamp visa or printed in electronic form for foreign citizens who intend to stay in the Republic of Albania for more than 90 days within 180 days, and when, to obtain a residence permit, a visa is required.</p>
+              <div>
+                <p class="mb-2">LINK FOR THE APPLICATION:</p>
+                <a href="https://e-albania.al/eAlbaniaServices/DPPSH/15388/DPPSH_15388_n4_s1_web.aspx?service_code=15388" target="_blank" rel="noopener" class="link-preview-text">
+                  https://e-albania.al/eAlbaniaServices/DPPSH/15388/DPPSH_15388_n4_s1_web.aspx?service_code=15388
+                </a>
+              </div>
+            </section>
+
+            <!-- Visa At The Border -->
+            <section class="relative group my-4 rounded border-4 max-w-md xl:max-w-lg p-8 bg-white cursor-pointer mx-auto xl:ml-12 w-full category-d border-dashed border-gray-400 hover:border-secondary-500">
+              <span class="absolute hidden group-hover:inline top-0 right-0 p-2 border-b-4 border-l-4 border-dashed rounded-bl-md border-secondary-500 text-secondary-500 leading-none font-bold bg-secondary-100 text-xs uppercase">
+                SELECT
+              </span>
+              <header class="mb-4">
+                <h2>Viza Type “Visa At The Border”</h2>
+                <h3>For crews of navigation vehicles</h3>
+              </header>
+              <p>Issued in the form of a visa printed in electronic format, which is applied only for the crews of Albanian or foreign navigation vehicles, which request permission to embark or reembark, to return to the Republic of Albania.</p>
+              <p>The visa at the border is issued for foreigners who embark or re-embark, with 1 (one) entry and with a stay duration of 1 (one) to 5 (five) days.</p>
+            </section>
+          </div>
+        </div>
+
+        <section id="visa-type-list" class="flex flex-col mx-auto lg:mx-8 xl:mx-12 max-w-5xl">
+          <header class="w-full text-center my-6 px-2">
+            <h2 class="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">Visa categories &amp; requirements</h2>
+            <p class="mt-3 text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">Topics linked to <strong>Electronic</strong>, <strong>Stamped</strong>, <strong>Type A</strong>, <strong>Type C</strong>, <strong>Type D</strong> and <strong>Visa at the border</strong>. Open any row for details.</p>
+            <div class="mt-4 flex flex-wrap justify-center gap-2 text-xs">
+              <span class="px-3 py-1 rounded-full bg-red-50 text-secondary-500 border border-red-100 font-semibold">SELECT</span>
+              <span class="px-3 py-1 rounded-full bg-gray-100 text-gray-600 border border-gray-200">Hover cards above to choose visa type</span>
+            </div>
+          </header>
+          <ul class="visa-dd-root list-none mx-auto w-full bg-white border border-gray-400 rounded-xl shadow-md overflow-hidden p-2 md:p-4 space-y-2" role="list">
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white bg-secondary-500 px-2 py-1 rounded shrink-0">Electronic</span>
+                <span class="flex-1 min-w-0 font-semibold text-gray-900 text-sm sm:text-base">Electronic visa – purpose and delivery</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90">
+                <div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed space-y-2">
+                  <p>An <strong>electronic visa</strong> is issued without a physical sticker in many cases; the decision is communicated by email. It suits eligible short-stay and certain categories where online processing is enabled—matching the <span class="text-secondary-500 font-semibold">SELECTED</span> Electronic card above.</p>
+                  <p>You must present the visa (print or digital as instructed) at the border when entering Albania.</p>
+                </div>
+              </div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-secondary-500 border border-secondary-500 px-2 py-1 rounded shrink-0">Electronic</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Electronic visa – typical supporting documents</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Commonly required: valid passport, recent photograph meeting specifications, travel medical insurance where applicable, proof of accommodation, return ticket, and financial means. All uploads must be <strong>PDF</strong> and in <strong>Albanian or English</strong> (or translated).</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-700 bg-gray-100 px-2 py-1 rounded shrink-0">Stamped</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Stamped visa – when to choose (SELECT card)</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Choose <strong>Stamped visa</strong> when you need a physical sticker in your passport or must collect the visa at an Albanian embassy or consulate. Hover the dashed-border card and use <strong>SELECT</strong> to align your application path with consular issuance.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-700 bg-gray-100 px-2 py-1 rounded shrink-0">Stamped</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Collection at diplomatic mission</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>After approval, you attend the mission in person with your passport and any instructions sent by email. Biometrics or interview may be required depending on the post.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-secondary-500 border border-red-200 px-2 py-1 rounded shrink-0">Type A</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Airport transit visa (A) – international zone</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Type <strong>A</strong> allows stay in the <strong>international transit area</strong> of an Albanian airport until your connecting flight. It may be issued with one, two, or multiple entries depending on your itinerary.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md ring-2 ring-secondary-500/20">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-red-50/50 hover:bg-secondary-100/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-white bg-secondary-500 px-2 py-1 rounded shrink-0">Type A</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Type A – online form &amp; Apply</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed space-y-4">
+                <p>The application form is completed online free of charge, generated and available for download from the system after submission.</p>
+                <button type="button" class="button button-secondary w-full sm:w-auto px-10 py-2.5 font-bold rounded-md shadow-sm hover:shadow-md transition-shadow" onclick="window.open('https://e-visa.al/sign-in?redirect=%2Fcreate-application%3FvisaTypeId%3D34','_blank')">Apply for type A</button>
+              </div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-secondary-500 border border-red-200 px-2 py-1 rounded shrink-0">Type C</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Short stay visa (C) – 90/180 rule</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Type <strong>C</strong> entitles you to stay in Albania for up to <strong>90 days in any 180-day period</strong>, counted from first entry. Use the <strong>SELECT</strong> option on the Type C card when applying online.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-secondary-500 border border-red-200 px-2 py-1 rounded shrink-0">Type C</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Type C – single, double or multiple entry</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>The consular authority may issue type C with one, two, or more entries according to your purpose of stay and supporting documentation (tourism, business, family visit, etc.).</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-800 bg-amber-50 border border-amber-200 px-2 py-1 rounded shrink-0">Type D</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Long stay (D) – more than 90 days</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Type <strong>D</strong> is for stays <strong>exceeding 90 days within 180 days</strong>, often as a step towards a residence permit. Select the Type D card above, then follow the national portal link for certain D-category procedures.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-800 bg-amber-50 border border-amber-200 px-2 py-1 rounded shrink-0">Type D</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Type D – e-Albania application link</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed space-y-2">
+                <p>Some long-stay applications are submitted through the national e-services portal.</p>
+                <a href="https://e-albania.al/eAlbaniaServices/DPPSH/15388/DPPSH_15388_n4_s1_web.aspx?service_code=15388" target="_blank" rel="noopener" class="link-preview-text break-all">Open e-Albania service (service code 15388)</a>
+              </div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-50 border border-blue-200 px-2 py-1 rounded shrink-0">Border</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Visa at the border – navigation crews</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>This category applies to <strong>crews of Albanian or foreign navigation vessels</strong> who need to embark, re-embark, or return to Albania. It is issued electronically and is separate from standard C/D tourism or work routes.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-blue-900 bg-blue-50 border border-blue-200 px-2 py-1 rounded shrink-0">Border</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Border visa – 1 entry, 1–5 days stay</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Visa at the border is limited to <strong>one entry</strong> and a stay of <strong>one to five days</strong>, aligned with crew rotation and port operations.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Passport validity beyond intended stay</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Your travel document should remain valid for the entire period of stay and often at least three months beyond the intended departure, unless bilateral agreements state otherwise.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Translations &amp; PDF format</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Documents not in Albanian or English must be translated. Uploads must be <strong>scanned PDFs</strong> unless the system requests a photograph separately.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Photo size &amp; resolution (47×36 mm)</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Facial photo should meet ICAO-style rules: typically <strong>47 mm × 36 mm</strong> or digital equivalent at <strong>300 DPI</strong> (e.g. 555×425 px height×width as per portal guidelines).</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Bank receipt &amp; fee payment proof</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>The receipt must show applicant name, application code, description such as “Visa Fee Payment / Aplikim për vizë”, bank stamp and employee signature. Mobile screenshots of transfers are not accepted as proof.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Processing: 15–30 working days</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>After payment, evaluation usually takes <strong>at least 15 working days</strong>; complex files may require up to <strong>30 working days</strong>. Unpaid applications may move to “Not paid” and be refused after the deadline.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">Exemption</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Schengen visa &amp; residence permit holders</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Certain foreigners may enter <strong>visa-free for up to 90 days in 180 days</strong> if they hold a valid <strong>multiple-entry Schengen visa already used in the Schengen area</strong>, or a valid Schengen residence permit—subject to the published visa regime list.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Minors &amp; legal guardians</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Applications for children require parental consent and birth certificates as instructed. Fees for ages 6–12 are typically half the adult rate; under 6 may be exempt.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Dual citizenship – travel document</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>If you have more than one nationality, register the nationality of the <strong>passport you will use to travel</strong>. Mismatch between e-Visa data and the document presented at the border may lead to refusal of entry.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Contact during processing</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>During verification, applicants and sponsors must <strong>not</strong> contact institutions except when officially requested. Unsolicited contact may delay the file.</p></div></div>
+            </li>
+            <li class="visa-dd-item rounded-lg border border-gray-200 overflow-hidden transition-all duration-300 hover:border-secondary-500/40 hover:shadow-md">
+              <button type="button" class="visa-dd-btn w-full flex flex-wrap sm:flex-nowrap items-center gap-3 text-left px-4 py-3.5 bg-white hover:bg-red-50/80 transition-colors" aria-expanded="false">
+                <span class="text-[10px] sm:text-xs font-bold uppercase tracking-wider text-gray-600 bg-gray-100 px-2 py-1 rounded shrink-0">All types</span>
+                <span class="flex-1 font-semibold text-gray-900 text-sm sm:text-base">Refusal, annulment &amp; appeal</span>
+                <svg class="visa-dd-chevron w-5 h-5 text-secondary-500 shrink-0 transition-transform duration-300" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd"/></svg>
+              </button>
+              <div class="visa-dd-panel hidden border-t border-gray-100 bg-gray-50/90"><div class="p-4 md:p-6 text-sm text-gray-700 leading-relaxed"><p>Within <strong>5 working days</strong> of a refusal or annulment you may appeal with reasons and evidence to <a href="mailto:visa@mfa.gov.al" class="text-secondary-500 font-semibold hover:underline">visa@mfa.gov.al</a>. Visa issuance never guarantees entry at the border.</p></div></div>
+            </li>
+          </ul>
+        </section>
+      </section>
+    </section>
+
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 mb-8 my-12 px-4 flex flex-wrap">
+      <h2>Application phases</h2>
+      <h3>First phase</h3>
+      <p>Visa application process is only accepted if it is completed online, and you must ensure that you are outside of the territory of the Republic of Albania after payment of the visa fee.</p>
+      <p>After the application is submitted:</p>
+      <ol class="apply-list">
+        <li>If it does not fulfil any of the criteria necessary for the required visa, the application is rejected according to the legal framework.</li>
+        <li>If it has irregularities, it is turned back to the applicant requesting the correct documents to be uploaded according to the instructions sent.</li>
+        <li>If it is correct, a notification is sent that the application has been accepted and a visa fee is requested, according to the cost and type of visa requested.</li>
+      </ol>
+      <p>Visa fees for foreign citizens (Council of Ministers No. 329, dated 29.05.2024) can be found <a href="https://e-visa.al/documents/tarifat-e-vizes.docx" target="_blank" rel="noopener">here</a>. Visa fees for minors aged 6–12 are half the visa fees for adults. The visa fee does not apply to: cases of reciprocity; humanitarian cases; holders of diplomatic and service passports; children under the age of 6.</p>
+      <h3>After payment</h3>
+      <ol class="apply-list">
+        <li>If the visa is rejected/canceled: the applicant is informed via email with the legal arguments.</li>
+        <li>If the visa is approved, the electronic visa is generated and sent by email. You must be in possession of the visa at the Border Crossing Point when entering and leaving Albania.</li>
+        <li>The assessment process as a rule takes up to 15 working days and in exceptional cases can take up to 30 working days.</li>
+        <li>The applicant is notified via email that the application is in the "evaluation process" stage.</li>
+      </ol>
+      <p>Within 5 working days from the receipt of the decision, the interested foreigner has the right to appeal against the decision of refusal/annulment of the visa at <a href="mailto:visa@mfa.gov.al">visa@mfa.gov.al</a>. The authority responsible is the Directorate for Consular Affairs at the Ministry for Europe and Foreign Affairs.</p>
+    </section>
+  </div>
+
+  <footer class="bg-primary-900 p-8 pt-12 text-center md:text-left">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 flex flex-wrap">
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Application</h3>
+        </header>
+        <ul>
+          <li><a href="apply.html#visa-types" class="hover:underline">New application</a></li>
+          <li><a href="https://e-visa.al/applications" class="hover:underline">Ongoing applications</a></li>
+          <li><a href="track.html" class="hover:underline">Track application</a></li>
+        </ul>
+      </section>
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Information</h3>
+        </header>
+        <ul class="text-sm space-y-1">
+          <li><a href="terms-conditions.html" class="hover:underline">Terms & Conditions</a></li>
+          <li><a href="privacy-policy.html" class="hover:underline">Privacy</a></li>
+          <li><a href="immigration-rules.html" class="hover:underline">Immigration Rules</a></li>
+          <li><a href="visa-policy.html" class="hover:underline">Visa Policy</a></li>
+          <li><a href="faq-general.html" class="hover:underline">FAQ</a></li>
+          <li><a href="faq-visas.html" class="hover:underline">Visa FAQ</a></li>
+          <li><a href="entry-requirements.html" class="hover:underline">Entry</a></li>
+          <li><a href="travel-health-notices.html" class="hover:underline">Travel & Health</a></li>
+          <li><a href="cookies-policy.html" class="hover:underline">Cookies</a></li>
+          <li><a href="legal-disclaimers.html" class="hover:underline">Legal</a></li>
+        </ul>
+      </section>
+      <section class="mt-6 w-full text-gray-600">
+        <p class="text-sm pl-6">Unofficial information-only demo. Not an official government e-Visa portal.</p>
+      </section>
+    </section>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Visa type list: accordion rows (#visa-type-list)
+    (function () {
+      document.querySelectorAll('.visa-dd-item').forEach(function (item) {
+        var btn = item.querySelector('.visa-dd-btn');
+        var panel = item.querySelector('.visa-dd-panel');
+        var chev = item.querySelector('.visa-dd-chevron');
+        if (!btn || !panel) return;
+        btn.addEventListener('click', function () {
+          var isOpen = !panel.classList.contains('hidden');
+          if (isOpen) {
+            panel.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            btn.classList.remove('border-l-4', 'border-l-secondary-500', 'bg-red-50', 'shadow-inner');
+            item.classList.remove('ring-2', 'ring-secondary-500/25');
+            if (chev) chev.classList.remove('rotate-180');
+          } else {
+            panel.classList.remove('hidden');
+            btn.setAttribute('aria-expanded', 'true');
+            btn.classList.add('border-l-4', 'border-l-secondary-500', 'bg-red-50', 'shadow-inner');
+            item.classList.add('ring-2', 'ring-secondary-500/25');
+            if (chev) chev.classList.add('rotate-180');
+          }
+        });
+      });
+    })();
+  </script>
+  <script src="i18n.js"></script>
+  <script src="auth-nav.js"></script>
+</body>
+</html>

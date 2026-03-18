@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-visa – Albania E-Visa Portal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="index">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="Republika e Shqipërisë e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <div class="w-full md:flex md:flex-row md:items-center md:w-auto md:ml-auto">
+            <div id="navbar-auth-mount"></div>
+            <div class="flex border rounded-md border-secondary-500 m-4 md:my-2 md:mr-0 md:ml-4" role="group" aria-label="Language">
+              <button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="en">EN</button>
+              <button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="sq">AL</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero-wrapper relative">
+      <section class="hero">
+        <div class="hero-inner max-w-screen-xl">
+          <div class="hero-actions">
+            <a href="apply.html"><button type="button" class="hero-btn hero-btn--primary" data-i18n="hero_apply">Apply Now</button></a>
+            <a href="track.html"><button type="button" class="hero-btn hero-btn--outline" data-i18n="hero_track">Track</button></a>
+            <a href="verify.html"><button type="button" class="hero-btn hero-btn--outline" data-i18n="hero_verify">Verify</button></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="steps">
+      <div class="container">
+        <h2 data-i18n="idx_how">How it works</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-num">1</span>
+            <h3 data-i18n="idx_s1h">Fill out your application</h3>
+            <p data-i18n="idx_s1p">Complete the online form and upload required documents.</p>
+            <a href="apply.html" class="step-link" data-i18n="idx_s1l">Start application →</a>
+          </div>
+          <div class="step-card">
+            <span class="step-num">2</span>
+            <h3 data-i18n="idx_s2h">Verify your application</h3>
+            <p data-i18n="idx_s2p">Check your information and pay the visa fee when requested.</p>
+            <a href="verify.html" class="step-link" data-i18n="idx_s2l">Verify →</a>
+          </div>
+          <div class="step-card">
+            <span class="step-num">3</span>
+            <h3 data-i18n="idx_s3h">Wait for results</h3>
+            <p data-i18n="idx_s3p">Track your application and receive your e-Visa by email.</p>
+            <a href="track.html" class="step-link" data-i18n="idx_s3l">Track status →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features">
+      <div class="container">
+        <h2 data-i18n="idx_why">Why use e-Visa</h2>
+        <div class="features-grid">
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <div>
+              <h4 data-i18n="idx_f1h">Secure and efficient</h4>
+              <p data-i18n="idx_f1p">Application submission is safe and straightforward.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <div>
+              <h4 data-i18n="idx_f2h">Instant approval for eligible countries</h4>
+              <p data-i18n="idx_f2p">See the list of countries and visa regime below.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <div>
+              <h4 data-i18n="idx_f3h">User friendly and eco friendly</h4>
+              <p data-i18n="idx_f3p">Paperless process, simple forms.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <div>
+              <h4 data-i18n="idx_f4h">Tourism, business, study & transit</h4>
+              <p data-i18n="idx_f4p">Apply for the visa type you need.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <span class="feature-icon">✓</span>
+            <div>
+              <h4 data-i18n="idx_f5h">24/7 fast online application</h4>
+              <p data-i18n="idx_f5p">Simplified forms, apply anytime.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <h2 data-i18n="idx_cta_h">Ready to apply?</h2>
+        <a href="apply.html" class="btn btn-primary btn-large" data-i18n="idx_cta_btn">Fill out your application</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-primary-900 p-8 pt-12 text-center md:text-left">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 flex flex-wrap">
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3 data-i18n="foot_app">Application</h3>
+        </header>
+        <ul>
+          <li><a href="apply.html#visa-types" class="hover:underline" data-i18n="foot_new">New application</a></li>
+          <li><a href="https://e-visa.al/applications" class="hover:underline" data-i18n="foot_ongoing">Ongoing applications</a></li>
+          <li><a href="track.html" class="hover:underline" data-i18n="foot_track">Track application</a></li>
+        </ul>
+      </section>
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3 data-i18n="foot_info">Information</h3>
+        </header>
+        <ul class="text-sm space-y-1">
+          <li><a href="terms-conditions.html" class="hover:underline" data-i18n="foot_terms">Terms & Conditions</a></li>
+          <li><a href="privacy-policy.html" class="hover:underline" data-i18n="foot_privacy">Privacy Policy</a></li>
+          <li><a href="immigration-rules.html" class="hover:underline" data-i18n="foot_immigration">Immigration Rules</a></li>
+          <li><a href="visa-policy.html" class="hover:underline" data-i18n="foot_visapol">Visa Policy</a></li>
+          <li><a href="faq-general.html" class="hover:underline" data-i18n="foot_faq">FAQ</a></li>
+          <li><a href="faq-visas.html" class="hover:underline" data-i18n="foot_visafaq">Visa FAQ</a></li>
+          <li><a href="entry-requirements.html" class="hover:underline" data-i18n="foot_entry">Entry Requirements</a></li>
+          <li><a href="travel-health-notices.html" class="hover:underline" data-i18n="foot_travel">Travel & Health</a></li>
+          <li><a href="cookies-policy.html" class="hover:underline" data-i18n="foot_cookies">Cookies</a></li>
+          <li><a href="legal-disclaimers.html" class="hover:underline" data-i18n="foot_legal">Legal Notices</a></li>
+        </ul>
+      </section>
+      <section class="mt-6 w-full text-gray-600">
+        <p class="text-sm pl-6" data-i18n="foot_operator">Unofficial information-only demo. Not an official government e-Visa portal.</p>
+      </section>
+    </section>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="i18n.js"></script>
+  <script src="auth-nav.js"></script>
+</body>
+</html>

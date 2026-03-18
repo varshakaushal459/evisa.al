@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register – e-visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            secondary: { 500: '#c41e3a', 600: '#a01830', 700: '#9a1830' }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="register">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="Republika e Shqipërisë e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <div class="w-full md:flex md:flex-row md:items-center md:w-auto md:ml-auto">
+            <div id="navbar-auth-mount"></div>
+            <div class="flex border rounded-md border-secondary-500 m-4 md:my-2 md:mr-0 md:ml-4" role="group" aria-label="Language"><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="en">EN</button><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="sq">AL</button></div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <div class="fill-default-layout-height bg-gray-200">
+    <div>
+      <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 flex justify-center py-32 px-4">
+        <article class="rounded-md border border-gray-400 p-12 max-w-lg lg:max-w-2xl w-full space-y-8 bg-white">
+          <header>
+            <h2 class="mt-6 text-center text-3xl font-extrabold text-gray-900">
+              <span class="title-line-1">Create your</span>
+              <span class="title-line-2"> e-Visa account</span>
+            </h2>
+          </header>
+
+          <form id="register-form" class="mt-8 space-y-6" action="#" method="post">
+            <section>
+              <header class="mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Personal Information</h3>
+              </header>
+              <div class="flex flex-wrap">
+                <div class="mb-4 w-full lg:w-1/3 lg:pr-2">
+                  <label for="first-name" class="block mb-1 whitespace-nowrap">First name</label>
+                  <input id="first-name" type="text" placeholder="First name" name="first-name" required="required"
+                         class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+                </div>
+                <div class="mb-4 w-full lg:w-1/3 lg:px-1">
+                  <label for="middle-name" class="block mb-1 whitespace-nowrap">Middle name</label>
+                  <input id="middle-name" type="text" placeholder="Middle name" name="middle-name"
+                         class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+                </div>
+                <div class="mb-4 w-full lg:w-1/3 lg:pl-2">
+                  <label for="last-name" class="block mb-1 whitespace-nowrap">Last name</label>
+                  <input id="last-name" type="text" placeholder="Last name" name="last-name" required="required"
+                         class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+                </div>
+              </div>
+              <div>
+                <div>
+                  <label for="nationality" class="block mb-1 whitespace-nowrap">Nationality</label>
+                  <div class="relative">
+                    <select id="nationality" name="nationality" required="required"
+                            class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full text-gray-900 bg-white focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm pr-10">
+                      <option value="" disabled selected>Select nationality</option>
+                      <option value="AL">Albanian</option>
+                      <option value="US">American</option>
+                      <option value="GB">British</option>
+                      <option value="IN">India</option>
+                      <option value="DE">German</option>
+                      <option value="FR">French</option>
+                      <option value="IT">Italian</option>
+                      <option value="OTHER">Other</option>
+                    </select>
+                    <span class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3 text-gray-500" aria-hidden="true">▾</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <header class="mb-4">
+                <h3 class="text-lg font-semibold text-gray-900">Login Information</h3>
+              </header>
+              <div class="mb-4 w-full">
+                <label for="email" class="block mb-1 whitespace-nowrap">Email</label>
+                <input id="email" type="email" placeholder="Email" name="email" required="required" autocomplete="email"
+                       class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+              </div>
+              <div class="flex flex-wrap">
+                <div class="mb-4 w-full lg:w-1/2 lg:pr-2">
+                  <label for="password" class="block mb-1 whitespace-nowrap">Password</label>
+                  <input id="password" type="password" placeholder="Password" name="password" required="required" autocomplete="new-password"
+                         class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+                </div>
+                <div class="mb-4 w-full lg:w-1/2 lg:pl-2">
+                  <label for="password-confirmation" class="block mb-1 whitespace-nowrap">Repeat password</label>
+                  <input id="password-confirmation" type="password" placeholder="Repeat password" name="password-confirmation" required="required" autocomplete="new-password"
+                         class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+                </div>
+              </div>
+            </section>
+
+            <section>
+              <div class="flex items-start gap-3 mb-6">
+                <input id="consent" type="checkbox" required="required"
+                       class="mt-1 h-4 w-4 shrink-0 text-secondary-600 focus:ring-secondary-500 border-gray-400 rounded">
+                <label for="consent" class="text-sm text-gray-900 leading-snug cursor-pointer">
+                  I allow the website to collect and store the data I submit through this form.
+                </label>
+              </div>
+              <button type="submit"
+                      class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-secondary-500 hover:bg-secondary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-secondary-500">
+                Register
+              </button>
+            </section>
+          </form>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <footer class="bg-primary-900 p-8 pt-12 text-center md:text-left">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 flex flex-wrap">
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Application</h3>
+        </header>
+        <ul>
+          <li><a href="apply.html#visa-types" class="hover:underline">New application</a></li>
+          <li><a href="https://e-visa.al/applications" class="hover:underline">Ongoing applications</a></li>
+          <li><a href="track.html" class="hover:underline">Track application</a></li>
+        </ul>
+      </section>
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Information</h3>
+        </header>
+        <ul class="text-sm space-y-1">
+          <li><a href="terms-conditions.html" class="hover:underline">Terms</a></li>
+          <li><a href="privacy-policy.html" class="hover:underline">Privacy</a></li>
+          <li><a href="immigration-rules.html" class="hover:underline">Immigration</a></li>
+          <li><a href="visa-policy.html" class="hover:underline">Visa Policy</a></li>
+          <li><a href="faq-general.html" class="hover:underline">FAQ</a></li>
+          <li><a href="faq-visas.html" class="hover:underline">Visa FAQ</a></li>
+          <li><a href="entry-requirements.html" class="hover:underline">Entry</a></li>
+          <li><a href="travel-health-notices.html" class="hover:underline">Travel</a></li>
+          <li><a href="cookies-policy.html" class="hover:underline">Cookies</a></li>
+          <li><a href="legal-disclaimers.html" class="hover:underline">Legal</a></li>
+        </ul>
+      </section>
+      <section class="mt-6 w-full text-gray-600">
+        <p class="text-sm pl-6">Unofficial information-only demo. Not an official government e-Visa portal.</p>
+      </section>
+    </section>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="auth-nav.js"></script>
+  <script>
+    document.getElementById('register-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var p = document.getElementById('password').value;
+      var c = document.getElementById('password-confirmation').value;
+      if (p !== c) {
+        alert('Passwords do not match.');
+        return;
+      }
+      var fn = document.getElementById('first-name').value.trim();
+      var ln = document.getElementById('last-name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var displayName = (fn + ' ' + ln).trim() || email.split('@')[0];
+      sessionStorage.setItem('evisaPendingLogin', JSON.stringify({
+        email: email,
+        password: p,
+        displayName: displayName,
+        firstName: fn,
+        lastName: ln,
+        middleName: document.getElementById('middle-name').value.trim(),
+        nationality: document.getElementById('nationality').value
+      }));
+      window.location.href = 'login.html?registered=1';
+    });
+  </script>
+</body>
+</html>

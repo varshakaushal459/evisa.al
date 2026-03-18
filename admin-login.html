@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin login – e-visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="admin">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <a href="login.html" class="nav-auth-link text-sm px-3">User login</a>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <div class="fill-default-layout-height bg-gray-200">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 py-16 px-4">
+      <article class="rounded-md border border-gray-400 p-8 max-w-md mx-auto bg-white shadow-sm">
+        <h1 class="text-2xl font-bold text-gray-900 mb-6">Admin panel</h1>
+
+        <form id="admin-login-form" class="space-y-4">
+          <div>
+            <label for="adm-user" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+            <input type="text" id="adm-user" name="username" required autocomplete="username"
+              class="w-full border border-gray-400 rounded-md px-3 py-2 text-gray-900 focus:ring-secondary-500 focus:border-secondary-500"
+              placeholder="admin">
+          </div>
+          <div>
+            <label for="adm-pass" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+            <input type="password" id="adm-pass" name="password" required autocomplete="current-password"
+              class="w-full border border-gray-400 rounded-md px-3 py-2 text-gray-900 focus:ring-secondary-500 focus:border-secondary-500"
+              placeholder="••••••••">
+          </div>
+          <p id="admin-login-err" class="text-sm text-red-600 hidden"></p>
+          <button type="submit" class="w-full button button-secondary py-2.5 font-semibold rounded-md">
+            Open admin panel
+          </button>
+        </form>
+      </article>
+    </section>
+  </div>
+
+  <script src="admin-config.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('admin-login-form');
+      var err = document.getElementById('admin-login-err');
+      if (sessionStorage.getItem('evisaAdminLogged') === '1') {
+        window.location.replace('admin.html');
+        return;
+      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        err.classList.add('hidden');
+        var cfg = window.EVISA_ADMIN_CONFIG;
+        if (!cfg || typeof cfg.username !== 'string' || typeof cfg.password !== 'string') {
+          err.textContent = 'Configuration could not be loaded. Ensure admin-config.js is present.';
+          err.classList.remove('hidden');
+          return;
+        }
+        var u = document.getElementById('adm-user').value.trim();
+        var p = document.getElementById('adm-pass').value;
+        if (u === cfg.username && p === cfg.password) {
+          sessionStorage.setItem('evisaAdminLogged', '1');
+          window.location.href = 'admin.html';
+        } else {
+          err.textContent = 'Invalid username or password.';
+          err.classList.remove('hidden');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

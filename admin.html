@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin – e-visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            secondary: { 500: '#c41e3a', 600: '#a01830', 700: '#9a1830' }
+          }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="admin">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="Republika e Shqipërisë e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <div class="w-full md:flex md:flex-row md:items-center md:w-auto md:ml-auto p-2 gap-2 flex-wrap">
+            <span class="text-white text-sm mr-2" data-i18n="admin_label">Admin</span>
+            <div class="lang-switch-standalone flex border rounded-md border-secondary-500" role="group" aria-label="Language">
+              <button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="en">EN</button>
+              <button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="sq">AL</button>
+            </div>
+            <a href="index.html" id="admin-exit" class="md:mx-2 md:button md:button-secondary text-sm" data-i18n="admin_exit">Exit admin</a>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <div class="fill-default-layout-height bg-gray-200">
+    <div>
+      <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 px-4 py-8">
+        <h1 class="text-xl font-bold text-gray-900 mb-6" data-i18n="admin_h1">Visa application records</h1>
+        <p class="text-sm text-gray-600 mb-6" data-i18n-key="admin_p" data-i18n-mode="html">Applicants can view these records via <strong>Track</strong> (application code) or <strong>Verify</strong> (passport and visa number).</p>
+
+        <article class="border border-gray-400 rounded-md p-4 md:p-8 bg-white mb-8">
+          <h2 id="admin-form-title" class="text-lg font-semibold mb-4">Add record</h2>
+          <form id="admin-form" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div>
+              <label for="adm-passport" class="block mb-1 text-sm">Passport Number</label>
+              <input id="adm-passport" type="text" required class="appearance-none border rounded-md border-gray-400 px-3 py-2 w-full text-sm">
+            </div>
+            <div>
+              <label for="adm-visa" class="block mb-1 text-sm">Visa Number</label>
+              <input id="adm-visa" type="text" required class="appearance-none border rounded-md border-gray-400 px-3 py-2 w-full text-sm">
+            </div>
+            <div>
+              <label for="adm-code" class="block mb-1 text-sm">Application code</label>
+              <input id="adm-code" type="text" required placeholder="e.g. ROM-2XXXXXXX3XXXX" class="appearance-none border rounded-md border-gray-400 px-3 py-2 w-full text-sm">
+            </div>
+            <div>
+              <label for="adm-status" class="block mb-1 text-sm">Status</label>
+              <select id="adm-status" class="appearance-none border rounded-md border-gray-400 px-3 py-2 w-full text-sm bg-white">
+                <option>Approved</option>
+                <option>Pending</option>
+                <option>Rejected</option>
+                <option>In review</option>
+              </select>
+            </div>
+            <div class="sm:col-span-2 lg:col-span-4">
+              <label for="adm-pdf" class="block mb-1 text-sm">Upload PDF (optional, max. 3.5 MB)</label>
+              <input id="adm-pdf" type="file" accept=".pdf,application/pdf" class="block w-full text-sm text-gray-600 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:bg-gray-100 file:text-gray-700">
+              <p id="adm-pdf-hint" class="hidden text-xs text-gray-600 mt-1">A PDF is already saved for this record. Upload a new file to replace it.</p>
+              <label id="adm-pdf-remove-wrap" class="hidden mt-2 flex items-center gap-2 text-sm cursor-pointer">
+                <input type="checkbox" id="adm-pdf-remove" class="rounded border-gray-400">
+                <span>Remove attached PDF</span>
+              </label>
+            </div>
+            <div class="sm:col-span-2 lg:col-span-4 flex flex-wrap gap-3 items-center">
+              <button type="submit" id="admin-submit-btn" class="button button-secondary px-8 py-2">Save</button>
+              <button type="button" id="admin-cancel-edit" class="hidden px-6 py-2 border border-gray-400 rounded-md text-sm text-gray-700 hover:bg-gray-50">Cancel edit</button>
+            </div>
+          </form>
+        </article>
+
+        <article class="border border-gray-400 rounded-md p-4 md:p-8 bg-white overflow-x-auto">
+          <h2 class="text-lg font-semibold mb-4">Saved records</h2>
+          <table class="w-full min-w-[720px] border-collapse border border-gray-400 text-sm">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-400 px-3 py-2 text-left">Passport Number</th>
+                <th class="border border-gray-400 px-3 py-2 text-left">Visa Number</th>
+                <th class="border border-gray-400 px-3 py-2 text-left">Application code</th>
+                <th class="border border-gray-400 px-3 py-2 text-left">Status</th>
+                <th class="border border-gray-400 px-3 py-2 text-center w-16">PDF</th>
+                <th class="border border-gray-400 px-3 py-2 text-left w-40">Actions</th>
+              </tr>
+            </thead>
+            <tbody id="admin-table-body"></tbody>
+          </table>
+          <p id="admin-empty" class="text-gray-500 text-sm mt-4 hidden">No records yet. Add one above.</p>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <script src="evisa-admin-data.js"></script>
+  <script>
+    (function () {
+      if (sessionStorage.getItem('evisaAdminLogged') !== '1') {
+        window.location.href = 'admin-login.html';
+        return;
+      }
+      var editingIndex = null;
+      var formTitle = document.getElementById('admin-form-title');
+      var submitBtn = document.getElementById('admin-submit-btn');
+      var cancelEditBtn = document.getElementById('admin-cancel-edit');
+
+      function resetEditMode() {
+        editingIndex = null;
+        formTitle.textContent = 'Add record';
+        submitBtn.textContent = 'Save';
+        cancelEditBtn.classList.add('hidden');
+        document.getElementById('adm-pdf').value = '';
+        document.getElementById('adm-pdf-remove').checked = false;
+        document.getElementById('adm-pdf-hint').classList.add('hidden');
+        document.getElementById('adm-pdf-remove-wrap').classList.add('hidden');
+        document.getElementById('admin-form').reset();
+      }
+
+      function startEdit(index) {
+        var rows = getEvisaAdminRecords();
+        var r = rows[index];
+        if (!r) return;
+        editingIndex = index;
+        formTitle.textContent = 'Edit record';
+        submitBtn.textContent = 'Update';
+        cancelEditBtn.classList.remove('hidden');
+        document.getElementById('adm-passport').value = r.passportNumber;
+        document.getElementById('adm-visa').value = r.visaNumber;
+        document.getElementById('adm-code').value = r.applicationCode;
+        document.getElementById('adm-status').value = r.status;
+        document.getElementById('adm-pdf').value = '';
+        document.getElementById('adm-pdf-remove').checked = false;
+        if (r.pdfDataUrl) {
+          document.getElementById('adm-pdf-hint').classList.remove('hidden');
+          document.getElementById('adm-pdf-remove-wrap').classList.remove('hidden');
+        } else {
+          document.getElementById('adm-pdf-hint').classList.add('hidden');
+          document.getElementById('adm-pdf-remove-wrap').classList.add('hidden');
+        }
+        document.getElementById('adm-passport').focus();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function renderTable() {
+        var rows = getEvisaAdminRecords();
+        var tb = document.getElementById('admin-table-body');
+        var empty = document.getElementById('admin-empty');
+        tb.innerHTML = '';
+        if (!rows.length) {
+          empty.classList.remove('hidden');
+          return;
+        }
+        empty.classList.add('hidden');
+        rows.forEach(function (r, i) {
+          var tr = document.createElement('tr');
+          tr.className = 'bg-white';
+          var bc = statusBadgeClass(r.status);
+          var pdfCell = r.pdfDataUrl ? '<span class="text-green-600 font-semibold">Yes</span>' : '—';
+          tr.innerHTML =
+            '<td class="border border-gray-400 px-3 py-2">' + esc(r.passportNumber) + '</td>' +
+            '<td class="border border-gray-400 px-3 py-2">' + esc(r.visaNumber) + '</td>' +
+            '<td class="border border-gray-400 px-3 py-2 font-mono">' + esc(r.applicationCode) + '</td>' +
+            '<td class="border border-gray-400 px-3 py-2"><span class="inline-block rounded px-2 py-0.5 text-xs font-semibold ' + bc + '">' + esc(r.status) + '</span></td>' +
+            '<td class="border border-gray-400 px-3 py-2 text-center">' + pdfCell + '</td>' +
+            '<td class="border border-gray-400 px-3 py-2 whitespace-nowrap">' +
+            '<button type="button" class="admin-edit text-secondary-500 hover:underline text-sm mr-3" data-index="' + i + '">Edit</button>' +
+            '<button type="button" class="admin-remove text-red-600 hover:underline text-sm" data-index="' + i + '">Remove</button>' +
+            '</td>';
+          tb.appendChild(tr);
+        });
+        tb.querySelectorAll('.admin-edit').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            startEdit(parseInt(btn.getAttribute('data-index'), 10));
+          });
+        });
+        tb.querySelectorAll('.admin-remove').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var idx = parseInt(btn.getAttribute('data-index'), 10);
+            if (!confirm('Remove this record?')) return;
+            removeEvisaAdminRecordAt(idx);
+            if (editingIndex === idx) resetEditMode();
+            else if (editingIndex !== null && editingIndex > idx) editingIndex--;
+            renderTable();
+          });
+        });
+      }
+      function esc(s) {
+        var d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+      }
+      var PDF_MAX = 3.5 * 1024 * 1024;
+
+      document.getElementById('admin-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        var fileInput = document.getElementById('adm-pdf');
+        var file = fileInput.files[0];
+        var removePdf = document.getElementById('adm-pdf-remove').checked;
+
+        if (file) {
+          if (file.type && file.type !== 'application/pdf') {
+            alert('Please upload a PDF file only.');
+            return;
+          }
+          if (file.size > PDF_MAX) {
+            alert('The selected file exceeds the maximum size of 3.5 MB.');
+            return;
+          }
+        }
+
+        var data = {
+          passportNumber: document.getElementById('adm-passport').value,
+          visaNumber: document.getElementById('adm-visa').value,
+          applicationCode: document.getElementById('adm-code').value,
+          status: document.getElementById('adm-status').value
+        };
+
+        function saveWithPdf(pdfDataUrl) {
+          if (editingIndex !== null) {
+            if (removePdf) data.pdfDataUrl = null;
+            else if (pdfDataUrl) data.pdfDataUrl = pdfDataUrl;
+            else data.pdfDataUrl = undefined;
+            updateEvisaAdminRecordAt(editingIndex, data);
+            resetEditMode();
+          } else {
+            data.pdfDataUrl = pdfDataUrl || null;
+            addEvisaAdminRecord(data);
+            resetEditMode();
+          }
+          fileInput.value = '';
+          renderTable();
+        }
+
+        if (file) {
+          var fr = new FileReader();
+          fr.onload = function () {
+            try {
+              saveWithPdf(fr.result);
+            } catch (err) {
+              alert('Could not save the file. Please try a smaller PDF.');
+            }
+          };
+          fr.onerror = function () {
+            alert('Could not read the file.');
+          };
+          fr.readAsDataURL(file);
+        } else {
+          if (editingIndex !== null && removePdf) data.pdfDataUrl = null;
+          saveWithPdf(null);
+        }
+      });
+      cancelEditBtn.addEventListener('click', function () {
+        resetEditMode();
+      });
+      document.getElementById('admin-exit').addEventListener('click', function () {
+        sessionStorage.removeItem('evisaAdminLogged');
+      });
+      renderTable();
+    })();
+  </script>
+  <script src="i18n.js"></script>
+</body>
+</html>

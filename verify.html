@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify – e-visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="verify">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="Republika e Shqipërisë e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <div class="w-full md:flex md:flex-row md:items-center md:w-auto md:ml-auto">
+            <div id="navbar-auth-mount"></div>
+            <div class="flex border rounded-md border-secondary-500 m-4 md:my-2 md:mr-0 md:ml-4" role="group" aria-label="Language"><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="en">EN</button><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="sq">AL</button></div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <header id="page-title">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 py-4 px-4">
+      <h1 class="text-white m-0 text-2xl font-bold tracking-tight">Verify</h1>
+    </section>
+  </header>
+
+  <div class="fill-default-layout-height bg-gray-200">
+    <div>
+      <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 py-12 px-4">
+        <article class="border border-gray-400 rounded-md p-4 md:p-8 flex flex-col items-stretch bg-white w-full">
+          <form id="verify-form" class="mx-auto w-full max-w-[317px]">
+            <div>
+              <label for="serial-number" class="block mb-1 whitespace-nowrap">Visa Number</label>
+              <input id="serial-number" type="text" name="serial-number" required placeholder="Visa Number"
+                     class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+            </div>
+            <div class="mt-4">
+              <label for="passport-number" class="block mb-1 whitespace-nowrap">Passport Number</label>
+              <input id="passport-number" type="text" name="passport-number" required placeholder="Passport Number"
+                     class="appearance-none relative block border rounded-md border-gray-400 px-3 py-2 w-full placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-secondary-500 focus:border-secondary-500 focus:z-10 sm:text-sm">
+            </div>
+            <button type="submit" class="w-full button button-secondary mt-4">Verify</button>
+          </form>
+
+          <div id="verify-not-found" class="hidden w-full mt-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-center text-sm text-red-800">
+            No application was found for the passport and visa number entered.
+          </div>
+
+          <div id="verify-result" class="hidden w-full mt-8 overflow-x-auto" aria-live="polite">
+            <h2 class="mb-4 text-lg font-semibold text-gray-900 text-center md:text-left">Application details</h2>
+            <table class="verify-result-table w-full min-w-[600px] border-collapse border border-gray-400 text-sm text-left">
+              <thead>
+                <tr class="bg-gray-100">
+                  <th class="border border-gray-400 px-4 py-3 font-semibold text-gray-900">Passport Number</th>
+                  <th class="border border-gray-400 px-4 py-3 font-semibold text-gray-900">Visa Number</th>
+                  <th class="border border-gray-400 px-4 py-3 font-semibold text-gray-900">Application code *</th>
+                  <th class="border border-gray-400 px-4 py-3 font-semibold text-gray-900">Status</th>
+                </tr>
+              </thead>
+              <tbody id="verify-result-body">
+              </tbody>
+            </table>
+          </div>
+        </article>
+      </section>
+    </div>
+  </div>
+
+  <footer class="bg-primary-900 p-8 pt-12 text-center md:text-left">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 flex flex-wrap">
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Application</h3>
+        </header>
+        <ul>
+          <li><a href="apply.html#visa-types" class="hover:underline">New application</a></li>
+          <li><a href="https://e-visa.al/applications" class="hover:underline">Ongoing applications</a></li>
+          <li><a href="track.html" class="hover:underline">Track application</a></li>
+        </ul>
+      </section>
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Information</h3>
+        </header>
+        <ul class="text-sm space-y-1">
+          <li><a href="terms-conditions.html" class="hover:underline">Terms</a></li>
+          <li><a href="privacy-policy.html" class="hover:underline">Privacy</a></li>
+          <li><a href="immigration-rules.html" class="hover:underline">Immigration</a></li>
+          <li><a href="visa-policy.html" class="hover:underline">Visa Policy</a></li>
+          <li><a href="faq-general.html" class="hover:underline">FAQ</a></li>
+          <li><a href="faq-visas.html" class="hover:underline">Visa FAQ</a></li>
+          <li><a href="entry-requirements.html" class="hover:underline">Entry</a></li>
+          <li><a href="travel-health-notices.html" class="hover:underline">Travel</a></li>
+          <li><a href="cookies-policy.html" class="hover:underline">Cookies</a></li>
+          <li><a href="legal-disclaimers.html" class="hover:underline">Legal</a></li>
+        </ul>
+      </section>
+      <section class="mt-6 w-full text-gray-600">
+        <p class="text-sm pl-6">Unofficial information-only demo. Not an official government e-Visa portal.</p>
+      </section>
+    </section>
+  </footer>
+
+  <script src="evisa-admin-data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var form = document.getElementById('verify-form');
+      var resultWrap = document.getElementById('verify-result');
+      var notFound = document.getElementById('verify-not-found');
+      var tbody = document.getElementById('verify-result-body');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var visa = document.getElementById('serial-number').value.trim();
+        var passport = document.getElementById('passport-number').value.trim();
+        if (!visa || !passport) return;
+
+        resultWrap.classList.add('hidden');
+        notFound.classList.add('hidden');
+
+        var row = findEvisaByPassportVisa(passport, visa);
+        if (!row) {
+          notFound.classList.remove('hidden');
+          notFound.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          return;
+        }
+        var bc = statusBadgeClass(row.status);
+        tbody.innerHTML =
+          '<tr class="bg-white">' +
+          '<td class="border border-gray-400 px-4 py-3 text-gray-900">' + escapeHtml(row.passportNumber) + '</td>' +
+          '<td class="border border-gray-400 px-4 py-3 text-gray-900">' + escapeHtml(row.visaNumber) + '</td>' +
+          '<td class="border border-gray-400 px-4 py-3 font-mono text-gray-900">' + escapeHtml(row.applicationCode) + '</td>' +
+          '<td class="border border-gray-400 px-4 py-3">' +
+          '<span class="inline-block rounded px-2 py-1 text-xs font-semibold ' + bc + '">' + escapeHtml(row.status) + '</span>' +
+          '</td></tr>';
+        resultWrap.classList.remove('hidden');
+        resultWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+
+      function escapeHtml(s) {
+        var div = document.createElement('div');
+        div.textContent = s;
+        return div.innerHTML;
+      }
+    })();
+  </script>
+  <script src="i18n.js"></script>
+  <script src="auth-nav.js"></script>
+</body>
+</html>

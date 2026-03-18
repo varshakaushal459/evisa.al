@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Track – e-visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-i18n-page="track">
+  <header class="header" id="navbar">
+    <nav>
+      <section class="navbar-inner" aria-label="Primary navigation">
+        <div class="navbar-left">
+          <a href="index.html" class="logo logo-with-seal"><img src="https://e-visa.al/img/logos/main.png" alt="Republika e Shqipërisë e-visa" class="logo-img">
+          </a>
+        </div>
+        <div class="navbar-right">
+          <div class="w-full md:flex md:flex-row md:items-center md:w-auto md:ml-auto">
+            <div id="navbar-auth-mount"></div>
+            <div class="flex border rounded-md border-secondary-500 m-4 md:my-2 md:mr-0 md:ml-4" role="group" aria-label="Language"><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="en">EN</button><button type="button" class="lang-switch-btn px-2 py-1" data-set-lang="sq">AL</button></div>
+          </div>
+        </div>
+      </section>
+    </nav>
+  </header>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Track your application</h1>
+      <p>Use your application code to check the status of your e-Visa application.</p>
+    </div>
+  </section>
+
+  <main class="content-page">
+    <div class="container">
+      <div class="card">
+        <h2>Enter application code</h2>
+        <p>Your application code was sent to your email after you submitted the form (e.g. ROM-2XXXXXXX3XXXX).</p>
+        <form id="track-form">
+          <div class="form-group">
+            <label for="trackingNumber">Application code *</label>
+            <input type="text" id="trackingNumber" name="trackingNumber" required placeholder="e.g. ROM-2XXXXXXX3XXXX">
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Track application</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="track-not-found" class="card" style="display: none;">
+        <h3>Application not found</h3>
+        <p>No application corresponds to the code entered. Please verify the application code and try again.</p>
+      </div>
+      <div id="track-result" class="card" style="display: none;">
+        <h3>Application details</h3>
+        <div class="overflow-x-auto mt-4">
+          <table class="w-full min-w-[600px] border-collapse border border-gray-300 text-sm">
+            <thead>
+              <tr class="bg-gray-100">
+                <th class="border border-gray-300 px-3 py-2 text-left">Passport Number</th>
+                <th class="border border-gray-300 px-3 py-2 text-left">Visa Number</th>
+                <th class="border border-gray-300 px-3 py-2 text-left">Application code</th>
+                <th class="border border-gray-300 px-3 py-2 text-left">Status</th>
+              </tr>
+            </thead>
+            <tbody id="track-result-body"></tbody>
+          </table>
+        </div>
+        <div id="track-pdf-actions" class="hidden mt-6 pt-4 border-t border-gray-200">
+          <p class="text-sm font-medium text-gray-800 mb-3">Attached document</p>
+          <div class="flex flex-wrap gap-3">
+            <button type="button" id="track-view-pdf" class="btn btn-primary">View PDF</button>
+            <button type="button" id="track-print-pdf" class="px-4 py-2 border border-gray-400 rounded-md text-sm font-medium text-gray-800 hover:bg-gray-50">Print PDF</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="track-pdf-modal" class="fixed inset-0 z-[200] hidden flex items-center justify-center bg-black/70 p-4">
+    <div class="flex max-h-[92vh] w-full max-w-5xl flex-col overflow-hidden rounded-lg bg-white shadow-xl">
+      <div class="flex flex-shrink-0 items-center justify-between gap-2 border-b border-gray-200 px-4 py-3">
+        <span class="font-semibold text-gray-900">PDF document</span>
+        <div class="flex flex-wrap items-center gap-2">
+          <a id="track-pdf-open-tab" href="#" class="text-sm text-secondary-500 hover:underline" target="_blank" rel="noopener">Open in new tab</a>
+          <button type="button" id="track-pdf-modal-close" class="rounded-md border border-gray-300 px-3 py-1.5 text-sm hover:bg-gray-50">Close</button>
+        </div>
+      </div>
+      <iframe id="track-pdf-iframe" title="PDF" class="min-h-[75vh] w-full flex-1 border-0 bg-gray-100"></iframe>
+    </div>
+  </div>
+
+  <footer class="bg-primary-900 p-8 pt-12 text-center md:text-left">
+    <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 flex flex-wrap">
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Application</h3>
+        </header>
+        <ul>
+          <li><a href="apply.html#visa-types" class="hover:underline">New application</a></li>
+          <li><a href="https://e-visa.al/applications" class="hover:underline">Ongoing applications</a></li>
+          <li><a href="track.html" class="hover:underline">Track application</a></li>
+        </ul>
+      </section>
+      <section class="w-full md:w-1/2 lg:w-1/4 p-6 text-white">
+        <header class="py-4">
+          <h3>Information</h3>
+        </header>
+        <ul class="text-sm space-y-1">
+          <li><a href="terms-conditions.html" class="hover:underline">Terms</a></li>
+          <li><a href="privacy-policy.html" class="hover:underline">Privacy</a></li>
+          <li><a href="immigration-rules.html" class="hover:underline">Immigration</a></li>
+          <li><a href="visa-policy.html" class="hover:underline">Visa Policy</a></li>
+          <li><a href="faq-general.html" class="hover:underline">FAQ</a></li>
+          <li><a href="faq-visas.html" class="hover:underline">Visa FAQ</a></li>
+          <li><a href="entry-requirements.html" class="hover:underline">Entry</a></li>
+          <li><a href="travel-health-notices.html" class="hover:underline">Travel</a></li>
+          <li><a href="cookies-policy.html" class="hover:underline">Cookies</a></li>
+          <li><a href="legal-disclaimers.html" class="hover:underline">Legal</a></li>
+        </ul>
+      </section>
+      <section class="mt-6 w-full text-gray-600">
+        <p class="text-sm pl-6">Unofficial information-only demo. Not an official government e-Visa portal.</p>
+      </section>
+    </section>
+  </footer>
+
+  <script src="evisa-admin-data.js"></script>
+  <script src="script.js"></script>
+  <script>
+    var trackCurrentPdfUrl = null;
+    var trackPdfBlobUrl = null;
+
+    function dataURLToBlob(dataURL) {
+      var parts = String(dataURL).split(',');
+      if (parts.length < 2) throw new Error('invalid');
+      var meta = parts[0];
+      var base64 = parts[1];
+      var mimeMatch = meta.match(/data:([^;]+)/);
+      var mime = (mimeMatch && mimeMatch[1]) || 'application/pdf';
+      var binary = atob(base64.replace(/\s/g, ''));
+      var len = binary.length;
+      var bytes = new Uint8Array(len);
+      for (var i = 0; i < len; i++) bytes[i] = binary.charCodeAt(i);
+      return new Blob([bytes], { type: mime });
+    }
+
+    function revokeTrackPdfBlob() {
+      if (trackPdfBlobUrl) {
+        try {
+          URL.revokeObjectURL(trackPdfBlobUrl);
+        } catch (e) {}
+        trackPdfBlobUrl = null;
+      }
+    }
+
+    function closePdfModal() {
+      document.getElementById('track-pdf-modal').classList.add('hidden');
+      document.getElementById('track-pdf-iframe').removeAttribute('src');
+      revokeTrackPdfBlob();
+    }
+
+    function openPdfView() {
+      if (!trackCurrentPdfUrl) return;
+      revokeTrackPdfBlob();
+      var blob;
+      try {
+        blob = dataURLToBlob(trackCurrentPdfUrl);
+      } catch (e) {
+        alert('Could not open the document.');
+        return;
+      }
+      trackPdfBlobUrl = URL.createObjectURL(blob);
+      var iframe = document.getElementById('track-pdf-iframe');
+      var modal = document.getElementById('track-pdf-modal');
+      var openTab = document.getElementById('track-pdf-open-tab');
+      iframe.src = trackPdfBlobUrl;
+      openTab.href = trackPdfBlobUrl;
+      modal.classList.remove('hidden');
+    }
+
+    function printPdf() {
+      if (!trackCurrentPdfUrl) return;
+      var blob;
+      try {
+        blob = dataURLToBlob(trackCurrentPdfUrl);
+      } catch (e) {
+        alert('Could not read PDF.');
+        return;
+      }
+      var url = URL.createObjectURL(blob);
+      var w = window.open(url);
+      if (!w) {
+        URL.revokeObjectURL(url);
+        alert('Please allow pop-ups to print, or open the PDF with View PDF and print from there.');
+        return;
+      }
+      var t = setInterval(function () {
+        try {
+          if (w.document && w.document.readyState === 'complete') {
+            clearInterval(t);
+            setTimeout(function () {
+              w.focus();
+              w.print();
+              setTimeout(function () {
+                URL.revokeObjectURL(url);
+              }, 60000);
+            }, 800);
+          }
+        } catch (e) {}
+      }, 200);
+      setTimeout(function () {
+        clearInterval(t);
+      }, 15000);
+    }
+
+    document.getElementById('track-view-pdf').addEventListener('click', function () {
+      openPdfView();
+    });
+    document.getElementById('track-print-pdf').addEventListener('click', function () {
+      printPdf();
+    });
+    document.getElementById('track-pdf-modal-close').addEventListener('click', closePdfModal);
+    document.getElementById('track-pdf-modal').addEventListener('click', function (e) {
+      if (e.target.id === 'track-pdf-modal') closePdfModal();
+    });
+
+    document.getElementById('track-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var code = document.getElementById('trackingNumber').value.trim();
+      var result = document.getElementById('track-result');
+      var notFound = document.getElementById('track-not-found');
+      var pdfBox = document.getElementById('track-pdf-actions');
+      var tbody = document.getElementById('track-result-body');
+      result.style.display = 'none';
+      notFound.style.display = 'none';
+      trackCurrentPdfUrl = null;
+      pdfBox.classList.add('hidden');
+      if (!code) return;
+      var row = findEvisaByApplicationCode(code);
+      if (!row) {
+        notFound.style.display = 'block';
+        return;
+      }
+      var bc = statusBadgeClass(row.status);
+      function esc(s) {
+        var d = document.createElement('div');
+        d.textContent = s;
+        return d.innerHTML;
+      }
+      tbody.innerHTML =
+        '<tr><td class="border border-gray-300 px-3 py-2">' + esc(row.passportNumber) + '</td>' +
+        '<td class="border border-gray-300 px-3 py-2">' + esc(row.visaNumber) + '</td>' +
+        '<td class="border border-gray-300 px-3 py-2 font-mono">' + esc(row.applicationCode) + '</td>' +
+        '<td class="border border-gray-300 px-3 py-2"><span class="inline-block rounded px-2 py-0.5 text-xs font-semibold ' + bc + '">' + esc(row.status) + '</span></td></tr>';
+      if (row.pdfDataUrl && /data:application\/pdf|base64/i.test(String(row.pdfDataUrl))) {
+        trackCurrentPdfUrl = row.pdfDataUrl;
+        pdfBox.classList.remove('hidden');
+      }
+      result.style.display = 'block';
+    });
+  </script>
+  <script src="i18n.js"></script>
+  <script src="auth-nav.js"></script>
+</body>
+</html>
