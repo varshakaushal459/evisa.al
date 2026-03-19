@@ -1669,3 +1669,85 @@ footer.bg-primary-900 a {
     padding: 3rem 0;
   }
 }
+
+/* ========== Mobile width fix – header & sab pages, horizontal scroll na aaye ========== */
+@media (max-width: 768px) {
+  html {
+    overflow-x: hidden;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .header,
+  .navbar-inner,
+  .navbar-left,
+  .navbar-right {
+    max-width: 100%;
+  }
+
+  .navbar-inner {
+    width: 100%;
+  }
+
+  /* Container: safe padding, viewport ke andar */
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding-left: max(1rem, env(safe-area-inset-left, 1rem));
+    padding-right: max(1rem, env(safe-area-inset-right, 1rem));
+    box-sizing: border-box;
+  }
+
+  /* Page title strip (Track, Apply, etc.) */
+  #page-title section.max-w-screen-xl.mx-auto,
+  .max-w-screen-xl {
+    max-width: 100%;
+    width: 100%;
+    padding-left: max(1rem, env(safe-area-inset-left, 1rem));
+    padding-right: max(1rem, env(safe-area-inset-right, 1rem));
+    box-sizing: border-box;
+  }
+
+  /* Images / iframes viewport se bahar na niklen (logo ko chhod ke) */
+  img:not(.logo-img),
+  video,
+  iframe,
+  object,
+  embed {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Cards, feature items – overflow na ho */
+  .feature-item,
+  .step-card,
+  .card,
+  .apply-card {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  footer.bg-primary-900 {
+    padding-left: max(1rem, env(safe-area-inset-left, 1rem));
+    padding-right: max(1rem, env(safe-area-inset-right, 1rem));
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: max(0.75rem, env(safe-area-inset-left, 0.75rem));
+    padding-right: max(0.75rem, env(safe-area-inset-right, 0.75rem));
+  }
+}
