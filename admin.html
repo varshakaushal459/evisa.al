@@ -109,7 +109,6 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="evisa-supabase-config.js"></script>
   <script src="evisa-admin-data.js"></script>
   <script src="evisa-cloud.js"></script>
@@ -119,8 +118,7 @@
         window.location.href = 'admin-login.html';
         return;
       }
-      var useCloud = !!window.getEvisaAdminRecordsAsync;
-      if (useCloud) document.getElementById('admin-cloud-hint').classList.remove('hidden');
+      var useCloud = false;
       var editingIndex = null;
       var formTitle = document.getElementById('admin-form-title');
       var submitBtn = document.getElementById('admin-submit-btn');
@@ -310,7 +308,11 @@
       document.getElementById('admin-exit').addEventListener('click', function () {
         sessionStorage.removeItem('evisaAdminLogged');
       });
-      renderTable();
+      (window.EvisaCloudReady || Promise.resolve(false)).then(function () {
+        useCloud = !!window.getEvisaAdminRecordsAsync;
+        if (useCloud) document.getElementById('admin-cloud-hint').classList.remove('hidden');
+        renderTable();
+      });
     })();
   </script>
   <script src="i18n.js"></script>

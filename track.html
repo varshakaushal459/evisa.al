@@ -127,7 +127,6 @@
     </section>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script src="evisa-supabase-config.js"></script>
   <script src="evisa-admin-data.js"></script>
   <script src="evisa-cloud.js"></script>
@@ -265,11 +264,13 @@
       e.preventDefault();
       var code = document.getElementById('trackingNumber').value.replace(/\s+/g, ' ').trim();
       if (!code) return;
-      if (window.findEvisaByApplicationCodeAsync) {
-        findEvisaByApplicationCodeAsync(code).then(showTrackResult);
-      } else {
-        showTrackResult(findEvisaByApplicationCode(code));
-      }
+      (window.EvisaCloudReady || Promise.resolve()).then(function () {
+        if (window.findEvisaByApplicationCodeAsync) {
+          findEvisaByApplicationCodeAsync(code).then(showTrackResult);
+        } else {
+          showTrackResult(findEvisaByApplicationCode(code));
+        }
+      });
     });
   </script>
   <script src="i18n.js"></script>
