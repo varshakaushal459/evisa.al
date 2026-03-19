@@ -13,6 +13,10 @@ create table if not exists public.evisa_records (
 
 alter table public.evisa_records enable row level security;
 
+-- anon (Track/Verify bina login) ko SELECT allow – 401 / permission denied fix
+grant select on public.evisa_records to anon;
+grant select, insert, update, delete on public.evisa_records to authenticated;
+
 -- Sab log (Track/Verify) records read kar sakte hain
 create policy "evisa_records_select"
   on public.evisa_records for select
