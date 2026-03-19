@@ -29,10 +29,10 @@
 
         <form id="admin-login-form" class="space-y-4">
           <div>
-            <label for="adm-user" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+            <label for="adm-user" id="adm-user-label" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input type="text" id="adm-user" name="username" required autocomplete="username"
               class="w-full border border-gray-400 rounded-md px-3 py-2 text-gray-900 focus:ring-secondary-500 focus:border-secondary-500"
-              placeholder="admin">
+              placeholder="admin@example.com">
           </div>
           <div>
             <label for="adm-pass" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
@@ -41,7 +41,7 @@
               placeholder="••••••••">
           </div>
           <p id="admin-login-err" class="text-sm text-red-600 hidden"></p>
-          <button type="submit" class="w-full button button-secondary py-2.5 font-semibold rounded-md">
+          <button type="submit" id="admin-login-btn" class="w-full button button-secondary py-2.5 font-semibold rounded-md">
             Open admin panel
           </button>
         </form>
@@ -49,26 +49,66 @@
     </section>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="evisa-supabase-config.js"></script>
   <script src="admin-config.js"></script>
   <script>
     (function () {
       var form = document.getElementById('admin-login-form');
       var err = document.getElementById('admin-login-err');
+      var supabaseConfig = window.EvisaSupabaseConfig;
+      var useSupabaseAuth = supabaseConfig && supabaseConfig.url && supabaseConfig.anonKey;
+
       if (sessionStorage.getItem('evisaAdminLogged') === '1') {
         window.location.replace('admin.html');
         return;
       }
+
+      if (!useSupabaseAuth) {
+        document.getElementById('adm-user-label').textContent = 'Username';
+        document.getElementById('adm-user').placeholder = 'admin';
+      }
+
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         err.classList.add('hidden');
+        var u = document.getElementById('adm-user').value.trim();
+        var p = document.getElementById('adm-pass').value;
+        if (!u || !p) {
+          err.textContent = 'Enter email and password.';
+          err.classList.remove('hidden');
+          return;
+        }
+
+        if (useSupabaseAuth) {
+          var createClient = window.supabase || (window.supabase && window.supabase.createClient) || (window.supabase && window.supabase.default);
+          if (typeof createClient !== 'function') {
+            err.textContent = 'Supabase client not loaded.';
+            err.classList.remove('hidden');
+            return;
+          }
+          var supabase = createClient(supabaseConfig.url, supabaseConfig.anonKey);
+          supabase.auth.signInWithPassword({ email: u, password: p }).then(function (res) {
+            if (res.error) {
+              err.textContent = res.error.message || 'Invalid email or password.';
+              err.classList.remove('hidden');
+              return;
+            }
+            sessionStorage.setItem('evisaAdminLogged', '1');
+            window.location.href = 'admin.html';
+          }).catch(function (e) {
+            err.textContent = e.message || 'Login failed.';
+            err.classList.remove('hidden');
+          });
+          return;
+        }
+
         var cfg = window.EVISA_ADMIN_CONFIG;
         if (!cfg || typeof cfg.username !== 'string' || typeof cfg.password !== 'string') {
           err.textContent = 'Configuration could not be loaded. Ensure admin-config.js is present.';
           err.classList.remove('hidden');
           return;
         }
-        var u = document.getElementById('adm-user').value.trim();
-        var p = document.getElementById('adm-pass').value;
         if (u === cfg.username && p === cfg.password) {
           sessionStorage.setItem('evisaAdminLogged', '1');
           window.location.href = 'admin.html';

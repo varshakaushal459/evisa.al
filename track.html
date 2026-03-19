@@ -51,6 +51,7 @@
       <div id="track-not-found" class="card" style="display: none;">
         <h3>Application not found</h3>
         <p>No application corresponds to the code entered. Please verify the application code and try again.</p>
+        <p class="text-sm text-gray-600 mt-3">This demo stores data in this device’s browser only. If you added the application in Admin on another device (e.g. computer), it will not appear here—use the same device or add the record again on this device.</p>
       </div>
       <div id="track-result" class="card" style="display: none;">
         <h3>Application details</h3>
@@ -126,7 +127,10 @@
     </section>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="evisa-supabase-config.js"></script>
   <script src="evisa-admin-data.js"></script>
+  <script src="evisa-cloud.js"></script>
   <script src="script.js"></script>
   <script>
     var trackCurrentPdfUrl = null;
@@ -226,9 +230,7 @@
       if (e.target.id === 'track-pdf-modal') closePdfModal();
     });
 
-    document.getElementById('track-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-      var code = document.getElementById('trackingNumber').value.trim();
+    function showTrackResult(row) {
       var result = document.getElementById('track-result');
       var notFound = document.getElementById('track-not-found');
       var pdfBox = document.getElementById('track-pdf-actions');
@@ -237,18 +239,16 @@
       notFound.style.display = 'none';
       trackCurrentPdfUrl = null;
       pdfBox.classList.add('hidden');
-      if (!code) return;
-      var row = findEvisaByApplicationCode(code);
       if (!row) {
         notFound.style.display = 'block';
         return;
       }
-      var bc = statusBadgeClass(row.status);
       function esc(s) {
         var d = document.createElement('div');
         d.textContent = s;
         return d.innerHTML;
       }
+      var bc = statusBadgeClass(row.status);
       tbody.innerHTML =
         '<tr><td class="border border-gray-300 px-3 py-2">' + esc(row.passportNumber) + '</td>' +
         '<td class="border border-gray-300 px-3 py-2">' + esc(row.visaNumber) + '</td>' +
@@ -259,6 +259,17 @@
         pdfBox.classList.remove('hidden');
       }
       result.style.display = 'block';
+    }
+
+    document.getElementById('track-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var code = document.getElementById('trackingNumber').value.replace(/\s+/g, ' ').trim();
+      if (!code) return;
+      if (window.findEvisaByApplicationCodeAsync) {
+        findEvisaByApplicationCodeAsync(code).then(showTrackResult);
+      } else {
+        showTrackResult(findEvisaByApplicationCode(code));
+      }
     });
   </script>
   <script src="i18n.js"></script>

@@ -50,7 +50,8 @@
           </form>
 
           <div id="verify-not-found" class="hidden w-full mt-6 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-center text-sm text-red-800">
-            No application was found for the passport and visa number entered.
+            <p class="m-0">No application was found for the passport and visa number entered.</p>
+            <p class="mt-2 mb-0 text-xs text-red-700">This demo stores data in this device’s browser only. If you added the record in Admin on another device (e.g. computer), it will not appear here.</p>
           </div>
 
           <div id="verify-result" class="hidden w-full mt-8 overflow-x-auto" aria-live="polite">
@@ -108,7 +109,10 @@
     </section>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="evisa-supabase-config.js"></script>
   <script src="evisa-admin-data.js"></script>
+  <script src="evisa-cloud.js"></script>
   <script src="script.js"></script>
   <script>
     (function () {
@@ -117,16 +121,9 @@
       var notFound = document.getElementById('verify-not-found');
       var tbody = document.getElementById('verify-result-body');
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var visa = document.getElementById('serial-number').value.trim();
-        var passport = document.getElementById('passport-number').value.trim();
-        if (!visa || !passport) return;
-
+      function showVerifyResult(row) {
         resultWrap.classList.add('hidden');
         notFound.classList.add('hidden');
-
-        var row = findEvisaByPassportVisa(passport, visa);
         if (!row) {
           notFound.classList.remove('hidden');
           notFound.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
@@ -143,6 +140,18 @@
           '</td></tr>';
         resultWrap.classList.remove('hidden');
         resultWrap.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var visa = document.getElementById('serial-number').value.replace(/\s+/g, ' ').trim();
+        var passport = document.getElementById('passport-number').value.replace(/\s+/g, ' ').trim();
+        if (!visa || !passport) return;
+        if (window.findEvisaByPassportVisaAsync) {
+          findEvisaByPassportVisaAsync(passport, visa).then(showVerifyResult);
+        } else {
+          showVerifyResult(findEvisaByPassportVisa(passport, visa));
+        }
       });
 
       function escapeHtml(s) {

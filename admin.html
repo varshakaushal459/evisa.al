@@ -45,6 +45,7 @@
       <section class="max-w-screen-xl mx-auto sm:px-6 lg:px-8 px-4 py-8">
         <h1 class="text-xl font-bold text-gray-900 mb-6" data-i18n="admin_h1">Visa application records</h1>
         <p class="text-sm text-gray-600 mb-6" data-i18n-key="admin_p" data-i18n-mode="html">Applicants can view these records via <strong>Track</strong> (application code) or <strong>Verify</strong> (passport and visa number).</p>
+        <p id="admin-cloud-hint" class="hidden text-sm text-green-700 bg-green-50 border border-green-200 rounded px-3 py-2 mb-6">Data is synced across all devices (Supabase).</p>
 
         <article class="border border-gray-400 rounded-md p-4 md:p-8 bg-white mb-8">
           <h2 id="admin-form-title" class="text-lg font-semibold mb-4">Add record</h2>
@@ -96,6 +97,7 @@
                 <th class="border border-gray-400 px-3 py-2 text-left">Application code</th>
                 <th class="border border-gray-400 px-3 py-2 text-left">Status</th>
                 <th class="border border-gray-400 px-3 py-2 text-center w-16">PDF</th>
+                <th class="border border-gray-400 px-3 py-2 text-center w-20">Buffer</th>
                 <th class="border border-gray-400 px-3 py-2 text-left w-40">Actions</th>
               </tr>
             </thead>
@@ -107,13 +109,18 @@
     </div>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="evisa-supabase-config.js"></script>
   <script src="evisa-admin-data.js"></script>
+  <script src="evisa-cloud.js"></script>
   <script>
     (function () {
       if (sessionStorage.getItem('evisaAdminLogged') !== '1') {
         window.location.href = 'admin-login.html';
         return;
       }
+      var useCloud = !!window.getEvisaAdminRecordsAsync;
+      if (useCloud) document.getElementById('admin-cloud-hint').classList.remove('hidden');
       var editingIndex = null;
       var formTitle = document.getElementById('admin-form-title');
       var submitBtn = document.getElementById('admin-submit-btn');
@@ -132,8 +139,8 @@
       }
 
       function startEdit(index) {
-        var rows = getEvisaAdminRecords();
-        var r = rows[index];
+        var rows = useCloud ? window._adminCachedRows : getEvisaAdminRecords();
+        var r = rows && rows[index];
         if (!r) return;
         editingIndex = index;
         formTitle.textContent = 'Edit record';
@@ -156,8 +163,14 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
-      function renderTable() {
-        var rows = getEvisaAdminRecords();
+      function renderTable(rows) {
+        if (rows === undefined) {
+          if (useCloud) {
+            getEvisaAdminRecordsAsync().then(renderTable);
+            return;
+          }
+          rows = getEvisaAdminRecords();
+        }
         var tb = document.getElementById('admin-table-body');
         var empty = document.getElementById('admin-empty');
         tb.innerHTML = '';
@@ -171,12 +184,16 @@
           tr.className = 'bg-white';
           var bc = statusBadgeClass(r.status);
           var pdfCell = r.pdfDataUrl ? '<span class="text-green-600 font-semibold">Yes</span>' : '—';
+          var buffered = !!r.buffered;
+          var bufferBtnClass = buffered ? 'bg-amber-500 text-white' : 'bg-gray-200 text-gray-700';
+          var bufferLabel = buffered ? 'On' : 'Off';
           tr.innerHTML =
             '<td class="border border-gray-400 px-3 py-2">' + esc(r.passportNumber) + '</td>' +
             '<td class="border border-gray-400 px-3 py-2">' + esc(r.visaNumber) + '</td>' +
             '<td class="border border-gray-400 px-3 py-2 font-mono">' + esc(r.applicationCode) + '</td>' +
             '<td class="border border-gray-400 px-3 py-2"><span class="inline-block rounded px-2 py-0.5 text-xs font-semibold ' + bc + '">' + esc(r.status) + '</span></td>' +
             '<td class="border border-gray-400 px-3 py-2 text-center">' + pdfCell + '</td>' +
+            '<td class="border border-gray-400 px-3 py-2 text-center"><button type="button" class="admin-buffer rounded px-2 py-1 text-xs font-medium ' + bufferBtnClass + '" data-index="' + i + '" title="Buffer On: record hidden from Track/Verify">' + bufferLabel + '</button></td>' +
             '<td class="border border-gray-400 px-3 py-2 whitespace-nowrap">' +
             '<button type="button" class="admin-edit text-secondary-500 hover:underline text-sm mr-3" data-index="' + i + '">Edit</button>' +
             '<button type="button" class="admin-remove text-red-600 hover:underline text-sm" data-index="' + i + '">Remove</button>' +
@@ -192,12 +209,30 @@
           btn.addEventListener('click', function () {
             var idx = parseInt(btn.getAttribute('data-index'), 10);
             if (!confirm('Remove this record?')) return;
-            removeEvisaAdminRecordAt(idx);
-            if (editingIndex === idx) resetEditMode();
-            else if (editingIndex !== null && editingIndex > idx) editingIndex--;
-            renderTable();
+            function done() {
+              if (editingIndex === idx) resetEditMode();
+              else if (editingIndex !== null && editingIndex > idx) editingIndex--;
+              renderTable();
+            }
+            if (useCloud) removeEvisaAdminRecordAtAsync(idx).then(done);
+            else {
+              removeEvisaAdminRecordAt(idx);
+              done();
+            }
           });
         });
+        tb.querySelectorAll('.admin-buffer').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var idx = parseInt(btn.getAttribute('data-index'), 10);
+            if (useCloud) {
+              toggleEvisaBufferedAtAsync(idx).then(function () { renderTable(); });
+            } else {
+              toggleEvisaBufferedAt(idx);
+              renderTable();
+            }
+          });
+        });
+        if (useCloud) window._adminCachedRows = rows;
       }
       function esc(s) {
         var d = document.createElement('div');
@@ -231,19 +266,24 @@
         };
 
         function saveWithPdf(pdfDataUrl) {
+          function done() {
+            resetEditMode();
+            fileInput.value = '';
+            renderTable();
+          }
           if (editingIndex !== null) {
             if (removePdf) data.pdfDataUrl = null;
             else if (pdfDataUrl) data.pdfDataUrl = pdfDataUrl;
             else data.pdfDataUrl = undefined;
-            updateEvisaAdminRecordAt(editingIndex, data);
-            resetEditMode();
+            data.buffered = (window._adminCachedRows && window._adminCachedRows[editingIndex] && window._adminCachedRows[editingIndex].buffered) || false;
+            if (useCloud) updateEvisaAdminRecordAtAsync(editingIndex, data).then(done);
+            else { updateEvisaAdminRecordAt(editingIndex, data); done(); }
           } else {
             data.pdfDataUrl = pdfDataUrl || null;
-            addEvisaAdminRecord(data);
-            resetEditMode();
+            data.buffered = false;
+            if (useCloud) addEvisaAdminRecordAsync(data).then(done);
+            else { addEvisaAdminRecord(data); done(); }
           }
-          fileInput.value = '';
-          renderTable();
         }
 
         if (file) {
