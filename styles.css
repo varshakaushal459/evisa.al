@@ -1496,33 +1496,83 @@ footer.bg-primary-900 a {
   color: var(--black);
 }
 
-/* Responsive */
+/* Responsive – mobile: MFA seal hide, single-row header, Login/Register visible */
 @media (max-width: 768px) {
   .header {
-    --header-seal-overhang: 42px;
-    background-size: 100% 110px;
+    --header-seal-overhang: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background-size: 100% 100%;
+    background-color: var(--primary-900);
+  }
+
+  .header nav {
+    min-height: 56px;
+  }
+
+  /* Mobile: MFA seal hide – logo sirf e-visa text, space bachega Login/Register ke liye */
+  .logo.logo-with-seal::before,
+  .logo.logo-with-seal::after {
+    display: none;
   }
 
   .logo.logo-with-seal {
-    --logo-seal-size: 68px;
-    padding-left: calc(var(--logo-seal-size) + 10px);
+    --logo-seal-size: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    align-items: center;
   }
 
   .navbar-inner {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 0.5rem 1rem;
-    min-height: auto;
+    min-height: 56px;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .navbar-left {
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-end;
+    width: auto;
+    flex: 0 0 auto;
+    align-items: center;
+    min-width: 0;
   }
 
   .navbar-right {
-    width: 100%;
+    width: auto;
+    flex: 1 1 auto;
     justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .navbar-right .w-full {
+    width: auto;
+  }
+
+  /* Logo image chhota on mobile taake ek row mein fit ho */
+  .logo-img {
+    width: 130px;
+    height: 28px;
+    max-width: 42vw;
+  }
+
+  /* Lang switcher compact */
+  .navbar-right #navbar-auth-mount + div {
+    margin: 0 0 0 0.5rem;
+    padding: 0.15rem;
+  }
+}
+
+/* Chhote screens par logo aur buttons aur bhi compact */
+@media (max-width: 480px) {
+  .navbar-inner {
+    padding: 0.4rem 0.75rem;
+    min-height: 52px;
+  }
+
+  .logo-img {
+    width: 110px;
+    height: 24px;
   }
 }
 
