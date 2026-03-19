@@ -1496,7 +1496,7 @@ footer.bg-primary-900 a {
   color: var(--black);
 }
 
-/* Responsive – mobile: MFA seal hide, single-row header, Login/Register visible */
+/* Responsive – mobile: balanced header, auth + lang one row, hero buttons stack */
 @media (max-width: 768px) {
   .header {
     --header-seal-overhang: 0;
@@ -1510,7 +1510,7 @@ footer.bg-primary-900 a {
     min-height: 56px;
   }
 
-  /* Mobile: MFA seal hide – logo sirf e-visa text, space bachega Login/Register ke liye */
+  /* Mobile: MFA seal hide – logo sirf e-visa text */
   .logo.logo-with-seal::before,
   .logo.logo-with-seal::after {
     display: none;
@@ -1525,10 +1525,10 @@ footer.bg-primary-900 a {
 
   .navbar-inner {
     flex-wrap: nowrap;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.75rem;
     min-height: 56px;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem;
   }
 
   .navbar-left {
@@ -1536,6 +1536,7 @@ footer.bg-primary-900 a {
     flex: 0 0 auto;
     align-items: center;
     min-width: 0;
+    padding-right: 0.25rem;
   }
 
   .navbar-right {
@@ -1543,36 +1544,113 @@ footer.bg-primary-900 a {
     flex: 1 1 auto;
     justify-content: flex-end;
     min-width: 0;
+    overflow: hidden;
+  }
+
+  /* Auth + Lang ek hi row mein, wrap na ho */
+  .navbar-right > div {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.35rem;
+    margin: 0;
   }
 
   .navbar-right .w-full {
     width: auto;
   }
 
-  /* Logo image chhota on mobile taake ek row mein fit ho */
+  /* Logo thoda bada, left edge se thodi door */
   .logo-img {
-    width: 130px;
-    height: 28px;
-    max-width: 42vw;
+    width: 140px;
+    height: 30px;
+    max-width: 45vw;
+    min-width: 100px;
   }
 
-  /* Lang switcher compact */
+  /* Lang switcher compact, auth ke saath same line */
   .navbar-right #navbar-auth-mount + div {
-    margin: 0 0 0 0.5rem;
-    padding: 0.15rem;
+    margin: 0 !important;
+    padding: 3px !important;
+    flex-shrink: 0;
+  }
+
+  .navbar-right #navbar-auth-mount + div .lang-switch-btn {
+    padding: 0.35rem 0.5rem;
+    min-width: 2rem;
+    font-size: 0.65rem;
+  }
+
+  /* Log in / Register chhote but tappable */
+  .navbar-link a {
+    padding: 0.4rem 0.5rem;
+    font-size: 0.8125rem;
+    min-height: 36px;
   }
 }
 
-/* Chhote screens par logo aur buttons aur bhi compact */
+/* Hero: Apply / Track / Verify – mobile par stack, full width */
+@media (max-width: 768px) {
+  .hero-inner {
+    padding: 1rem 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions {
+    position: relative;
+    top: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .hero-actions a {
+    display: block;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    min-height: 48px;
+    font-size: 0.9375rem;
+  }
+}
+
+/* Chhote screens par header aur logo aur bhi compact */
 @media (max-width: 480px) {
   .navbar-inner {
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.6rem;
     min-height: 52px;
+    gap: 0.25rem;
   }
 
   .logo-img {
-    width: 110px;
-    height: 24px;
+    width: 120px;
+    height: 26px;
+    min-width: 90px;
+  }
+
+  .navbar-right #navbar-auth-mount + div .lang-switch-btn {
+    padding: 0.3rem 0.4rem;
+    min-width: 1.75rem;
+    font-size: 0.6rem;
+  }
+
+  .navbar-link a {
+    padding: 0.35rem 0.4rem;
+    font-size: 0.75rem;
+  }
+
+  .hero-actions {
+    max-width: 100%;
   }
 }
 
